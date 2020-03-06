@@ -1,6 +1,6 @@
 import * as actions from './actions';
 import uuid from 'uuid-random';
-import randomName from 'random-name';
+//import randomName from 'random-name';
 
 const initialState = {
     persons: []
@@ -11,8 +11,8 @@ const reducer = (state = initialState, action) => {
         case actions.ADD_PERSON:
             const personObjTemp = {
                 id: uuid(),
-                name: randomName.first(),
-                age: Math.floor(Math.random() *40)
+                name: action.personData.name,
+                age: action.personData.age
             };
             return {
                 ...state,
